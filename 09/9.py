@@ -51,6 +51,7 @@ for instrucao in instrucoes:
 				nos[indiceNo + 1] = (nos[indiceNo + 1][0] + distancia[0],
 									 nos[indiceNo + 1][1] + distancia[1])
 		posicoesVisitadasPelaCauda9.add(nos[9])
+		# PosicoesParte1.add(nos[1]) traria a resposta da parte 1 sem repetição de código.
 
 print('Para uma corda de tamanho 2, o número de posições que a cauda visitou é:', len(posicoesVisitadasPelaCauda))
 print('Para uma corda de tamanho 9, o número de posições que a cauda visitou é:', len(posicoesVisitadasPelaCauda9))
