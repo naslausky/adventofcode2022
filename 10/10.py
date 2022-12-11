@@ -9,26 +9,25 @@ registrador = 1
 soma = 0
 tela = ''
 
-def incrementarQuantidadeDeCiclos(quantidade):
+def incrementarQuantidadeDeCiclos():
 	global soma, numeroDeCiclos, tela, registrador
-	for _ in range(quantidade):
-		if numeroDeCiclos % 40 in range(registrador - 1, registrador + 2): # Parte 2:
-			tela += '#'
-		else: 
-			tela += ' '
+	if numeroDeCiclos % 40 in range(registrador - 1, registrador + 2): # Parte 2:
+		tela += '#'
+	else: 
+		tela += ' '
 
-		numeroDeCiclos += 1
-		if numeroDeCiclos % 40 == 20:
-			soma += (registrador * numeroDeCiclos)
-		if numeroDeCiclos % 40 == 0: # Adiciona uma quebra de linha para facilitar a leitura da parte 2.
-			tela += '\n'
+	numeroDeCiclos += 1
+	if numeroDeCiclos % 40 == 20:
+		soma += (registrador * numeroDeCiclos)
+	if numeroDeCiclos % 40 == 0: # Adiciona uma quebra de linha para facilitar a leitura da parte 2.
+		tela += '\n'
 
 for instrucao in instrucoes:
 	palavras = instrucao.split()
-	incrementarQuantidadeDeCiclos(1)
+	incrementarQuantidadeDeCiclos() # Independente da instrução, é necessário incrementar um ciclo.
 	if len(palavras) == 2: # Caso tenha valor, significa que é a operação de adição:
 		valor = int(palavras[1])
-		incrementarQuantidadeDeCiclos(1)
+		incrementarQuantidadeDeCiclos()
 		registrador += valor
 
 print('A soma da força dos seis sinais é:', soma)
