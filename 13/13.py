@@ -51,6 +51,9 @@ print('A soma dos índices dos pares ordenados corretamente é:', somaIndices)
 divisor1, divisor2 = [[2]], [[6]] # Novas listas a serem adicionadas para parte 2.
 todosOsPares.append(divisor1)
 todosOsPares.append(divisor2)
+# Alternativamente, ao invés de ordenar a lista, como queremos saber apenas o índice de dois elementos,
+# basta apenas comparar todos os outros com esses dois e contar quantos são menores que eles.
+
 todosOsPares.sort(key = functools.cmp_to_key(comparar), reverse = True)
 chaveDecodificacao = 1 # Resposta da parte 2.
 for indicePar, par in enumerate(todosOsPares):
