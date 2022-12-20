@@ -9,7 +9,7 @@ with open('input.txt') as file:
 class No: # Representa um nó na lista. Contém o número em si, e uma referência ao próximo elemento da lista.
 	def __init__(self, numero):
 		self.numero = numero
-		self.anterior = None
+		self.anterior = None # Provavelmente dá para resolver sem essa propriedade.
 		self.proximo = None
 
 def gerarNos(): # Gerar os nós e as ligações:
@@ -32,14 +32,9 @@ def misturar(): # Função que realiza uma mistura dos elementos dos números ba
 			continue
 		primeiroNo = nosDosNumeros[indice] # Nó origem.
 		segundoNo = primeiroNo
-		vezesARodar = abs(primeiroNo.numero) % (len(numeros) - 1)
-		if primeiroNo.numero < 0:
-			vezesARodar += 1 # Para pegar sempre o número a esquerda de onde se deseja inserir.
+		vezesARodar = primeiroNo.numero % (len(numeros) - 1)
 		for _ in range(vezesARodar):
-			if primeiroNo.numero > 0:
-				segundoNo = segundoNo.proximo
-			else:
-				segundoNo = segundoNo.anterior
+			segundoNo = segundoNo.proximo
 		primeiroNo.anterior.proximo = primeiroNo.proximo # Remove o nó de onde está:
 		primeiroNo.proximo.anterior = primeiroNo.anterior
 
